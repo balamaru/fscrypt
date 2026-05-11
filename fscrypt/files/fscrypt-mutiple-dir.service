@@ -1,0 +1,15 @@
+[Unit]
+Description=Fscrypt - Linux filesystem encryption
+After=local-fs.target
+Before=multi-user.target
+
+[Service]
+Type=oneshot
+
+ExecStart=/usr/local/bin/fscrypt-unlock.sh
+ExecStop=/usr/local/bin/fscrypt-lock.sh
+
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
